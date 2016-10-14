@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import roslib; roslib.load_manifest("romeo_srv")
 import sys
 import rospy
 from romeo_srv.srv import *
