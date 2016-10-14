@@ -31,6 +31,7 @@ def usage():
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
+        rospy.init_node('romeo_speech_client', anonymous=True)
         try: 
 	    phase = int(sys.argv[1])
 	except:

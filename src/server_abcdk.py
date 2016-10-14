@@ -71,45 +71,45 @@ def speech_for_phase(req):
             if req.phase==0: #presentation
               ab.onSay("""Bonjour, je m'appelle ROMEO.\\PAU=500\\ Je suis la plateforme de recherche d'Aldebaran Robotics.
     Bienvenue dans la salle Bozzil au Laas CNRS.
-    Aujourd'hui, je vais vous présenter les développements
-    de l'équipe Gépéto sur le robo \\PAU=200\\ HRP2.\\PAU=1000\\
-    Voici les différentes épreuves qui sont tentées par HRP2 aujourd'hui.\\PAU=500\\
-    une marche réactive commandée à la manette,\\PAU=500\\
+    Aujourd'hui, je vais vous prÃ©senter les dÃ©veloppements
+    de l'Ã©quipe GÃ©pÃ©to sur le robo \\PAU=200\\ HRP2.\\PAU=1000\\
+    Voici les diffÃ©rentes Ã©preuves qui sont tentÃ©es par HRP2 aujourd'hui.\\PAU=500\\
+    une marche rÃ©active commandÃ©e Ã  la manette,\\PAU=500\\
     une marche corps complet\\PAU=500\\
-    et enfin\\PAU=200\\ un algorithme de suivi de balle virtuelle, déplacée par un opérateur sur l'ecran se trouvant en face de vous, nommée Moujoko.\\PAU=1000\\""")
-    #"""D'autres comportements vont vous étre présentés :
-    #Il s'agit d'une montée des marches avec saisie de la rampe de l'escalier,
-    #et d'un suivi de balle virtuelle, déplacée par un opérateur sur l'ecran se trouvant en face de vous, grace à  une souris 3D."""
+    et enfin\\PAU=200\\ un algorithme de suivi de balle virtuelle, dÃ©placÃ© par un opÃ©rateur sur l'Ã©cran se trouvant en face de vous, nommÃ© Moujoko.\\PAU=1000\\""")
+#    """D'autres comportements vont vous tre prÃ©sentÃ©s :
+#    Il s'agit d'une montée des marches avec saisie de la rampe de l'escalier,
+#    et d'un suivi de balle virtuelle, déplacée par un opérateur sur l'ecran se trouvant en face de vous, grace à  une souris 3D."""
     
                 
             elif req.phase==1:#going upstairs
-              ab.onSay("""HRP2 va maintenant monter l'escalier à 10 centimètres, les commandes envoyées à  ses moteurs sont précalculées.\\PAU=500\\
-    Pour éviter des risques de dégradations en cas de chute, une personne doit l'accompagner sur les marches mais ne le touchera pas.\\PAU=500\\
-    De plusss, le pont roulant au dessus de vous, est controlé par un opérateur pour le sécuriser.
-    Ceci explique notamment la présence de la télécommande""")      
+              ab.onSay("""HRP2 va maintenant monter l'escalier Ã  10 centimÃ¨tres, les commandes envoyÃ©es Ã  ses moteurs sont prÃ©calculÃ©es.\\PAU=500\\
+    Pour Ã©viter des risques de dÃ©gradations en cas de chute, une personne doit l'accompagner sur les marches mais ne le touchera pas.\\PAU=500\\
+    De plusss, le pont roulant au dessus de vous, est controlÃ© par un opÃ©rateur pour le sÃ©curiser.
+    Ceci explique notamment la prÃ©sence de la tÃ©lÃ©commande""")      
             elif req.phase==2:#walking on the beam
-              ab.onSay("Pour cette démonstration, HRP2 va tenter de traverser la poutre.\\PAU=500\\ Aucun systèmes de recalage en position n'est encore utilisé, la position de départ est donc ici très importante.\\PAU=300\\ Une erreur de quelques degrés peut faire chuter le robot sur le bord de la poutre.")
+              ab.onSay("Pour cette dÃ©monstration, HRP2 va tenter de traverser la poutre.\\PAU=500\\ Aucun systÃ¨mes de recalage en position n'est encore utilisÃ©, la position de dÃ©part est donc ici trÃ¨s importante.\\PAU=300\\ Une erreur de quelques degrÃ©s peut faire chuter le robot sur le bord de la poutre.")
             elif req.phase==3:#Mujoko
-              ab.onSay("""Voici maintenant la démonstration Moujoco.\\PAU=500\\
-    L'objectif est de suivre la balle avec la main du robot en temps ré elle.\\PAU=500\\
-    Afin de garantir la sécurité du robot et d'accomplir cet objectif,
+              ab.onSay("""Voici maintenant la dÃ©monstration Moujoco.\\PAU=500\\
+    L'objectif est de suivre la balle avec la main du robot en temps rÃ© elle.\\PAU=500\\
+    Afin de garantir la sÃ©curitÃ© du robot et d'accomplir l'objectif,
     la tache principale doit rester le maintien en equilibre.
-    Le programme utilisé procède donc par hiérarchisation des taches.
-    De plus, le robot est capable de prévoir les autocollisions afin afin de les éviter""")
+    Le programme utilisÃ© procÃ¨de donc par hiÃ©rarchisation des taches.
+    De plusss, le robot est capable de prÃ©voir les autocollisions afin de les Ã©viter""")
             elif req.phase==4:#going downstairs
-              ab.onSay("""HRP2 va descendre des marches à 15 centimètres. Le taux de réussite sur cette démonstration est assez élevé""")
+              ab.onSay("""HRP2 va descendre des marches Ã  15 centimÃ¨tres. Le taux de rÃ©ussite sur cette dÃ©monstration est assez Ã©levÃ©""")
             elif req.phase==5:#stepping stones
-              ab.onSay("""HRP2 marche sur des pierres posées à des hauteurs différentes""")
+              ab.onSay("""HRP2 marche sur des pierres posÃ©es Ã  des hauteurs diffÃ©rentes""")
             elif req.phase==6:#multicontact
-              ab.onSay(""" En multicontacte, HRP2 peut saisir la rampe pour s'aider à monter les marches""")
+              ab.onSay(""" En multicontacte, HRP2 peut saisir la rampe pour s'aider Ã  monter les marches""")
             elif req.phase==7:#remote
-              ab.onSay(""" HRP2 est controlé avec une manette de console vidéo. Toutes les cinq millisecondes le robo recalcule la position ses deux prochains pas. De plus la grue qui sert à assurer le robo en cas de chute, est synchronisée automatiquement""")
+              ab.onSay(""" HRP2 est controlÃ© avec une manette de console vidÃ©o. Toutes les cinq millisecondes le robo recalcule la position ses deux prochains pas. De plus la grue qui sert Ã  assurer le robo en cas de chute, est synchronisÃ©e automatiquement""")
             elif req.phase==8:#multicontact
-              ab.onSay(""" HRP2 va maintenant marcher en utilisant le travail fait par nos collegues d'Heidelberg. Le robo utilise le haut du corps pour accroitre sa vitesse de déplacement. """)
+              ab.onSay(""" HRP2 va maintenant marcher en utilisant les mouvements fournis par nos collegues d'Heidelberg en Allemagne. Le robo utilise le haut du corps pour accroitre sa vitesse de dÃ©placement. """)
             elif req.phase==9:#multicontact
-              ab.onSay(""" La prochaine démonstration est très particulière, la génération des pas et le mouvement de saisie de l'objet sont produits à partir d'une seule et même tâche""")
+              ab.onSay(""" La prochaine dÃ©monstration est trÃ¨s particuliÃ¨re, la gÃ©nÃ©ration des pas et le mouvement de saisie de l'objet sont produits Ã  partir d'une seule et mÃªme tache""")
             elif req.phase==10:#error
-              ab.onSay("""oula,\\PAU=500\\ Je crois que quelquechose s'est mal passé, j'espère qu'il n'y a pas de casse.""")
+              ab.onSay("""oula,\\PAU=500\\ Je crois que quelquechose s'est mal passÃ©, j'espÃ¨re qu'il n'y a pas de casse.""")
             else:
               return Launch_speechResponse(0)    
             return Launch_speechResponse(1)
