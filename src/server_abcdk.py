@@ -91,25 +91,33 @@ def speech_for_phase(req):
               ab.onSay("Pour cette démonstration, HRP2 va tenter de traverser la poutre.\\PAU=500\\ Aucun systèmes de recalage en position n'est encore utilisé, la position de départ est donc ici très importante.\\PAU=300\\ Une erreur de quelques degrés peut faire chuter le robot sur le bord de la poutre.")
             elif req.phase==3:#Mujoko
               ab.onSay("""Voici maintenant la démonstration Moujoco.\\PAU=500\\
-    L'objectif est de suivre la balle avec la main du robot en temps ré elle.\\PAU=500\\
+    L'objectif du robot est d'attraper une balle virtuelle avec sa main.\\PAU=500\\
     Afin de garantir la sécurité du robot et d'accomplir l'objectif,
-    la tache principale doit rester le maintien en equilibre.
+    la tache principale doit rester le maintien en equilibre.\\PAU=300\\
     Le programme utilisé procède donc par hiérarchisation des taches.
     De plusss, le robot est capable de prévoir les autocollisions afin de les éviter""")
             elif req.phase==4:#going downstairs
-              ab.onSay("""HRP2 va descendre des marches à 15 centimètres. Le taux de réussite sur cette démonstration est assez élevé""")
+              ab.onSay("""HRP2 va descendre des marches de 15 centimètres. Le taux de réussite sur cette démonstration est assez élevé""")
             elif req.phase==5:#stepping stones
               ab.onSay("""HRP2 marche sur des pierres posées à des hauteurs différentes""")
             elif req.phase==6:#multicontact
-              ab.onSay(""" En multicontacte, HRP2 peut saisir la rampe pour s'aider à monter les marches""")
+              ab.onSay(""" Dans cette démonstration, HRP2 est capable de se servir de la rampe 
+pour monter des marches \\PAU=100\\ qui sont normalement trop hautes pour lui. \\PAU=500\\
+Un algorithme est donc capable de prévoir une séquence de contact \\PAU=200\\ et une trajectoire de l'ensemble de ses 30 moteurs \\PAU=100\\ 
+qui assure sa stabilité et son équilibre.""")
             elif req.phase==7:#remote
-              ab.onSay(""" HRP2 est controlé avec une manette de console vidéo. Toutes les cinq millisecondes le robo recalcule la position ses deux prochains pas. De plus la grue qui sert à assurer le robo en cas de chute, est synchronisée automatiquement""")
-            elif req.phase==8:#multicontact
+              ab.onSay(""" HRP2 est controlé avec une manette de console vidéo. \\PAU=500\\
+Toutes les cinq millisecondes, le robo recalcule la position de ses deux prochains pas. \\PAU=300\\
+De plusss la grue qui sert à assurer le robo en cas de chute se place automatiquement au dessus de lui.
+""")
+            elif req.phase==8:#Heidelberg
               ab.onSay(""" HRP2 va maintenant marcher en utilisant les mouvements fournis par nos collegues d'Heidelberg en Allemagne. Le robo utilise le haut du corps pour accroitre sa vitesse de déplacement. """)
-            elif req.phase==9:#multicontact
-              ab.onSay(""" La prochaine démonstration est très particulière, la génération des pas et le mouvement de saisie de l'objet sont produits à partir d'une seule et même tache""")
+            elif req.phase==9:#pickup
+              ab.onSay(""" La prochaine démonstration est très particulière, une directive simple comme le ramassage d'un objet au sol est a l'origine d'un pas en arrière. L'algorithme est donc capable de combiner locomotion et manipulation""")
             elif req.phase==10:#error
               ab.onSay("""oula,\\PAU=500\\ Je crois que quelquechose s'est mal passé, j'espère qu'il n'y a pas de casse.""")
+	    elif req.phase==11:#
+              ab.onSay("""joyeux anniversaire Andréa""")
             else:
               return Launch_speechResponse(0)    
             return Launch_speechResponse(1)
