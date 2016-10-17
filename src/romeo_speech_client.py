@@ -4,6 +4,13 @@ import sys
 import rospy
 from romeo_srv.srv import *
 
+def RepresentsInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
+
 def comment_HRP2_client(phase):
     rospy.wait_for_service('speech_by_phase')
     try:
@@ -30,14 +37,22 @@ def usage():
 10 : falling/error""" 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        rospy.init_node('romeo_speech_client', anonymous=True)
-        try: 
-	    phase = int(sys.argv[1])
-	except:
-	    print usage()
-	    sys.exit(2)
+    if len(sys.argv) > 1:
+        if RepresentsInt(sys.argv[1]):
+            rospy.init_node('romeo_speech_client', anonymous=True)
+            try: 
+                phase = int(sys.argv[1])
+            except:
+                print usage()
+                sys.exit(2)
+        else :
+            print "1rst number is not an integer"
+            print sys.argv
+            print usage()
+            sys.exit(3)
     else:
+        print "Wrong number of argument(s)!"
+        print sys.argv
         print usage()
         sys.exit(1)
     print "Requesting %s"%(phase)
